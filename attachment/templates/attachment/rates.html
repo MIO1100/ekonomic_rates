@@ -1,8 +1,194 @@
 {% extends "attachment/index.html"%}
 
     {% block content %}
+<p id="elem" ><font color="white" >{{date}}</font> </p>
+<canvas id="myChart"width="600" height="400"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<p>
 
-        {% for row in data  %}
-            <p>{{row}}</p>
-        {% endfor %}
+</p>
+<canvas id="myChart2"width="600" height="400"></canvas>
+<p>
+
+</p>
+<canvas id="myChart3"width="600" height="400"></canvas>
+<p>
+
+</p>
+<canvas id="myChart4"width="600" height="400"></canvas>
+<p>
+
+</p>
+<canvas id="myChart5"width="600" height="400"></canvas>
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var date_text= document.getElementById('elem').innerText;
+const regex1 = /\d{2}.\d{2}.\d{4}/g;
+
+var my_dates = date_text.match(regex1);
+
+//first
+var EUR = {
+    label: "EUR",
+    data: {{EUR}},
+    backgroundColor: 'rgba(244, 0, 0, 0.6)',
+};
+var USD = {
+    label: "USD",
+    data: {{USD}},
+    backgroundColor: 'rgba(0, 244, 0, 0.6)',
+};
+var CNY = {
+    label: "CNY",
+    data: {{CNY}},
+    backgroundColor: 'rgba(244, 122, 0, 0.6)',
+};
+var JPY = {
+    label: "JPY",
+    data: {{JPY}},
+    backgroundColor: 'rgba(40, 20, 0, 0.6)',
+};
+var date = {
+    labels: my_dates,
+    datasets: [EUR, USD, CNY, JPY]
+};
+var lineChart = new Chart(ctx, {
+  type: 'line',
+  data: date
+});
+
+</script>
+<p> </p>
+<script>
+    var ctx = document.getElementById('myChart2').getContext('2d');
+
+
+        //second to EUR
+
+
+var USD_e = {
+    label: "USD",
+    data: {{USD_e}},
+    backgroundColor: 'rgba(0, 244, 0, 0.6)',
+};
+var CNY_e = {
+    label: "CNY",
+    data: {{CNY_e}},
+    backgroundColor: 'rgba(244, 122, 0, 0.6)',
+};
+var JPY_e = {
+    label: "JPY",
+    data: {{JPY_e}},
+    backgroundColor: 'rgba(40, 20, 0, 0.6)',
+};
+var date_e = {
+    labels: my_dates,
+    datasets: [USD_e, CNY_e, JPY_e]
+};
+var lineChart_e = new Chart(ctx, {
+  type: 'line',
+  data: date_e
+});
+
+</script>
+<p>
+
+</p>
+<script>
+    var ctx = document.getElementById('myChart3').getContext('2d');
+
+    //third to USD
+var EUR_u = {
+    label: "EUR",
+    data: {{EUR_u}},
+    backgroundColor: 'rgba(0, 244, 0, 0.6)',
+};
+var CNY_u = {
+    label: "CNY",
+    data: {{CNY_u}},
+    backgroundColor: 'rgba(244, 122, 0, 0.6)',
+};
+var JPY_u = {
+    label: "JPY",
+    data: {{JPY_u}},
+    backgroundColor: 'rgba(40, 20, 0, 0.6)',
+};
+var date_u = {
+    labels: my_dates,
+    datasets: [EUR_u, CNY_u, JPY_u]
+};
+var lineChart_u = new Chart(ctx, {
+  type: 'line',
+  data: date_u
+});
+
+</script>
+<p>
+
+</p>
+<script>
+    var ctx = document.getElementById('myChart4').getContext('2d');
+
+
+
+//fourth to JPY
+var USD_j = {
+    label: "USD",
+    data: {{USD_j}},
+    backgroundColor: 'rgba(0, 244, 0, 0.6)',
+};
+var CNY_j = {
+    label: "CNY",
+    data: {{CNY_j}},
+    backgroundColor: 'rgba(244, 122, 0, 0.6)',
+};
+var EUR_j = {
+    label: "EUR",
+    data: {{EUR_j}},
+    backgroundColor: 'rgba(40, 20, 0, 0.6)',
+};
+var date_j = {
+    labels: my_dates,
+    datasets: [USD_j, CNY_j, EUR_j]
+};
+var lineChart_j = new Chart(ctx, {
+  type: 'line',
+  data: date_j
+});
+</script>
+<p>
+
+</p>
+<script>
+var ctx = document.getElementById('myChart5').getContext('2d');
+
+
+    //firth to CPY
+var USD_c = {
+    label: "USD",
+    data: {{USD_c}},
+    backgroundColor: 'rgba(0, 244, 0, 0.6)',
+};
+var EUR_c = {
+    label: "EUR",
+    data: {{EUR_c}},
+    backgroundColor: 'rgba(244, 122, 0, 0.6)',
+};
+var JPY_c = {
+    label: "JPY",
+    data: {{JPY_c}},
+    backgroundColor: 'rgba(40, 20, 0, 0.6)',
+};
+var date_c = {
+    labels: my_dates,
+    datasets: [USD_c, EUR_c, JPY_c]
+};
+var lineChart_c = new Chart(ctx, {
+  type: 'line',
+  data: date_c
+});
+
+
+</script>
     {% endblock %}
